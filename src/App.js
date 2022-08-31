@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import GlobalStyles from "./components/styles/Global";
+import Home from "./components/Home/Home";
+import Navbar from "./components/Navbar/Navbar";
+import { theme } from "./components/styles/Theme";
+import Projects from "./components/Projects/Projects";
+import About from "./components/About/About";
+import ParallaxComponent from "./components/Parallax/Parallax";
+import Technologies from "./components/Technologies/Technologies";
+import Footer from "./components/Footer/Footer";
 
-function App() {
+
+ function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <>
+          <GlobalStyles />
+          <Navbar />
+          <Home />
+          <Projects />
+          <About />
+          <ParallaxComponent />
+          <Technologies />
+          {/* <Playground /> */}
+          <Footer />
+        </>
+      </ThemeProvider>
+    </Router>
   );
 }
 
